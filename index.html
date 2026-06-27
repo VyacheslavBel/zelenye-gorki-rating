@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Зелёные горки — рейтинг отрядов</title>
   <meta name="description" content="Рейтинг деятельности отрядов, 2 смена, Зелёные горки.">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .poster-bg {
+      background-image: url("assets/poster-bg.png") !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+    }
+  </style>
 </head>
+
 <body>
   <main class="public-page">
     <section class="poster" aria-label="Рейтинг деятельности отрядов">
@@ -43,6 +53,7 @@
           <span>Вожатые</span>
           <span>Баллы</span>
         </div>
+
         <div id="rankingList"></div>
       </section>
 
@@ -54,12 +65,15 @@
       <footer class="poster-footer">
         <div class="wood-sign">
           <span>🍃</span>
-          <p>Обновлено:<br><strong data-field="updated">июнь–июль 2026</strong></p>
+          <p>
+            Обновлено:<br>
+            <strong data-field="updated">июнь–июль 2026</strong>
+          </p>
         </div>
       </footer>
     </section>
   </main>
 
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
