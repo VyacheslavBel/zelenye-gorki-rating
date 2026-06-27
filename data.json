@@ -1,0 +1,20 @@
+
+const iconTemplates = {
+  flag: `<svg viewBox="0 0 48 48"><path d="M14 40V10"/><path d="M15 11c8-5 13 5 22 0v18c-9 5-14-5-22 0"/></svg>`,
+  ball: `<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M24 6l7 8-3 9h-8l-3-9 7-8z"/><path d="M20 23l-8 5"/><path d="M28 23l8 5"/><path d="M16 38l4-8h8l4 8"/></svg>`,
+  paint: `<svg viewBox="0 0 48 48"><path d="M24 6c-10 0-18 7-18 16 0 8 6 14 14 14h3c2 0 3 2 3 4 0 1 1 2 3 2 8 0 15-8 15-18C44 14 35 6 24 6z"/><circle cx="16" cy="20" r="2"/><circle cx="23" cy="15" r="2"/><circle cx="31" cy="20" r="2"/><circle cx="19" cy="29" r="2"/></svg>`,
+  hands: `<svg viewBox="0 0 48 48"><path d="M15 23V12c0-3 4-3 4 0v9"/><path d="M19 22V9c0-3 5-3 5 0v13"/><path d="M24 22V11c0-3 5-3 5 0v13"/><path d="M29 24v-8c0-3 5-3 5 0v12c0 8-5 13-12 13-8 0-12-7-14-13"/><path d="M8 28c-2-4 3-6 6-1l3 4"/></svg>`,
+  shield: `<svg viewBox="0 0 48 48"><path d="M24 5l16 7v12c0 10-7 17-16 20C15 41 8 34 8 24V12l16-7z"/><path d="M18 25l4 4 8-10"/></svg>`
+};
+
+async function loadData(){const r=await fetch("./data.json?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error("data.json");return await r.json()}
+function setText(f,v){document.querySelectorAll(`[data-field="${f}"]`).forEach(e=>e.textContent=v)}
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function render(data){
+ setText("campName",(data.campName||"Зелёные горки").toUpperCase());setText("shift",data.shift||"2 смена");setText("mainWord",data.mainWord||"Рейтинг");setText("title",data.title||"деятельности отрядов");setText("subtitle",data.subtitle||"Промежуточные результаты");setText("updated",data.updated||"");
+ const list=document.getElementById("rankingList");list.innerHTML="";
+ (data.ranking||[]).sort((a,b)=>Number(a.place)-Number(b.place)).forEach(item=>{const row=document.createElement("article");row.className="rank-row";row.innerHTML=`<div class="place"><span class="badge">${Number(item.place)}</span></div><div class="squad">${esc(item.name)}</div><div class="counselors">${esc(item.counselors||"—")}</div><div class="score">${Number(item.score)}</div>`;list.appendChild(row)});
+ const cList=document.getElementById("criteriaList");cList.innerHTML="";
+ (data.criteria||[]).forEach(item=>{const card=document.createElement("article");card.className="criteria-item";card.innerHTML=`<div class="icon">${iconTemplates[item.icon]||iconTemplates.flag}</div><div class="criteria-name">${esc(item.name)}</div><div class="criteria-value">${Number(item.value)}</div>`;cList.appendChild(card)});
+}
+loadData().then(render).catch(e=>{console.error(e);document.getElementById("rankingList").innerHTML="<p>Не удалось загрузить данные рейтинга.</p>"});

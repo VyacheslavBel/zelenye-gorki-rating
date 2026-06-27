@@ -1,0 +1,17 @@
+# Зелёные горки — рейтинг
+
+Проверенная версия.
+
+В корне репозитория должны быть:
+- index.html
+- admin.html
+- data.json
+- style.css
+- app.js
+- admin.js
+- assets/poster-reference.png
+
+index.html должен начинаться с <!doctype html>.
+data.json должен начинаться с {.
+
+Не заменяйте index.html содержимым data.json.
