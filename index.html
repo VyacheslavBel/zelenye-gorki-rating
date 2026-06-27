@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зелёные горки — рейтинг отрядов</title>
+  <meta name="description" content="Рейтинг деятельности отрядов, 2 смена, Зелёные горки.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="public-page">
+    <section class="poster" aria-label="Рейтинг деятельности отрядов">
+      <div class="poster-bg" aria-hidden="true"></div>
+
+      <header class="poster-header">
+        <div class="logo-graphic" aria-hidden="true">
+          <span class="tree t1"></span>
+          <span class="tree t2"></span>
+          <span class="mountain m1"></span>
+          <span class="mountain m2"></span>
+          <span class="mountain m3"></span>
+          <span class="tree t3"></span>
+        </div>
+
+        <div class="camp-name" data-field="campName">ЗЕЛЁНЫЕ ГОРКИ</div>
+        <div class="shift-badge" data-field="shift">2 СМЕНА</div>
+
+        <h1 class="poster-title">
+          <span class="main-word" data-field="mainWord">Рейтинг</span>
+          <span class="small-title" data-field="title">деятельности отрядов</span>
+        </h1>
+
+        <div class="status-pill">
+          <span>🍃</span>
+          <span data-field="subtitle">Промежуточные результаты</span>
+        </div>
+      </header>
+
+      <section class="ranking-card">
+        <div class="ranking-head">
+          <span>Место</span>
+          <span>Отряд</span>
+          <span>Вожатые</span>
+          <span>Баллы</span>
+        </div>
+        <div id="rankingList"></div>
+      </section>
+
+      <section class="criteria-card">
+        <h2>🍃 За что начисляются баллы</h2>
+        <div id="criteriaList" class="criteria-list"></div>
+      </section>
+
+      <footer class="poster-footer">
+        <div class="wood-sign">
+          <span>🍃</span>
+          <p>Обновлено:<br><strong data-field="updated">июнь–июль 2026</strong></p>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

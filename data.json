@@ -1,0 +1,73 @@
+{
+  "campName": "Зелёные горки",
+  "shift": "2 смена",
+  "mainWord": "Рейтинг",
+  "title": "деятельности отрядов",
+  "subtitle": "Промежуточные результаты",
+  "updated": "июнь–июль 2026",
+  "ranking": [
+    {
+      "place": 1,
+      "name": "1 отряд",
+      "counselors": "Ольга и Кирилл",
+      "score": 1180
+    },
+    {
+      "place": 2,
+      "name": "2 отряд",
+      "counselors": "Мария и Иван",
+      "score": 1120
+    },
+    {
+      "place": 3,
+      "name": "3 отряд",
+      "counselors": "Анна и Максим",
+      "score": 1250
+    },
+    {
+      "place": 4,
+      "name": "4 отряд",
+      "counselors": "Елена и Артём",
+      "score": 1020
+    },
+    {
+      "place": 5,
+      "name": "5 отряд",
+      "counselors": "София и Данил",
+      "score": 980
+    },
+    {
+      "place": 6,
+      "name": "6 отряд",
+      "counselors": "Ольга и Павел",
+      "score": 940
+    }
+  ],
+  "criteria": [
+    {
+      "name": "Участие в мероприятиях",
+      "value": 30,
+      "icon": "flag"
+    },
+    {
+      "name": "Спорт",
+      "value": 20,
+      "icon": "ball"
+    },
+    {
+      "name": "Творчество",
+      "value": 20,
+      "icon": "paint"
+    },
+    {
+      "name": "Помощь отряду",
+      "value": 15,
+      "icon": "hands"
+    },
+    {
+      "name": "Дисциплина",
+      "value": 15,
+      "icon": "shield"
+    }
+  ]
+}
