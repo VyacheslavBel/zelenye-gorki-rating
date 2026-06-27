@@ -763,3 +763,21 @@ button {
 .poster-header {
   padding-top: 80px !important;
 }
+.logo-graphic,
+.camp-name {
+  display: none !important;
+}
+
+.camp-logo-image {
+  display: block;
+  width: min(440px, 92%);
+  height: auto;
+  margin: 0 auto 10px;
+  position: relative;
+  z-index: 5;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .12));
+}
+
+.admin-preview .camp-logo-image {
+  width: min(520px, 92%);
+}
