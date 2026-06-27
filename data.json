@@ -8,21 +8,21 @@
   "ranking": [
     {
       "place": 1,
-      "name": "1 отряд",
+      "name": "3 отряд",
+      "counselors": "Анна и Максим",
+      "score": 1250
+    },
+    {
+      "place": 2,
+      "name": "Ляляля",
       "counselors": "Ольга и Кирилл",
       "score": 1180
     },
     {
-      "place": 2,
-      "name": "2 отряд",
+      "place": 3,
+      "name": "бубубряд",
       "counselors": "Мария и Иван",
       "score": 1120
-    },
-    {
-      "place": 3,
-      "name": "3 отряд",
-      "counselors": "Анна и Максим",
-      "score": 1250
     },
     {
       "place": 4,
