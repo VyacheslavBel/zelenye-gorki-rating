@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin — Зелёные горки</title>
   <meta name="description" content="Панель управления рейтингом отрядов.">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .poster-bg {
+      background-image: url("assets/poster-bg.png") !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+    }
+  </style>
 </head>
+
 <body>
   <main class="admin-page">
     <section class="admin-preview">
@@ -44,6 +54,7 @@
             <span>Вожатые</span>
             <span>Баллы</span>
           </div>
+
           <div id="rankingList"></div>
         </section>
 
@@ -55,7 +66,10 @@
         <footer class="poster-footer">
           <div class="wood-sign">
             <span>🍃</span>
-            <p>Обновлено:<br><strong data-field="updated">июнь–июль 2026</strong></p>
+            <p>
+              Обновлено:<br>
+              <strong data-field="updated">июнь–июль 2026</strong>
+            </p>
           </div>
         </footer>
       </section>
@@ -70,12 +84,32 @@
       <form id="adminForm">
         <section class="control-card">
           <h2>Общая информация</h2>
+
           <div class="control-grid two">
-            <label>Смена <input id="shiftInput" type="text"></label>
-            <label>Главное слово <input id="mainWordInput" type="text"></label>
-            <label>Заголовок <input id="titleInput" type="text"></label>
-            <label>Статус <input id="subtitleInput" type="text"></label>
-            <label>Дата обновления <input id="updatedInput" type="text"></label>
+            <label>
+              Смена
+              <input id="shiftInput" type="text">
+            </label>
+
+            <label>
+              Главное слово
+              <input id="mainWordInput" type="text">
+            </label>
+
+            <label>
+              Заголовок
+              <input id="titleInput" type="text">
+            </label>
+
+            <label>
+              Статус
+              <input id="subtitleInput" type="text">
+            </label>
+
+            <label>
+              Дата обновления
+              <input id="updatedInput" type="text">
+            </label>
           </div>
         </section>
 
@@ -84,16 +118,25 @@
             <h2>Рейтинг отрядов</h2>
             <button id="sortBtn" type="button" class="small-button">Сортировать</button>
           </div>
+
           <div class="editor-head squad-grid">
-            <span>Место</span><span>Отряд</span><span>Вожатые</span><span>Баллы</span><span></span>
+            <span>Место</span>
+            <span>Отряд</span>
+            <span>Вожатые</span>
+            <span>Баллы</span>
+            <span></span>
           </div>
+
           <div id="rankingEditor"></div>
+
           <button id="addSquadBtn" type="button" class="add-button">+ Добавить отряд</button>
         </section>
 
         <section class="control-card">
           <h2>Критерии начисления баллов</h2>
+
           <div id="criteriaEditor"></div>
+
           <button id="addCriterionBtn" type="button" class="add-button">+ Добавить критерий</button>
         </section>
 
@@ -106,6 +149,6 @@
     </aside>
   </main>
 
-  <script src="./admin.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>
