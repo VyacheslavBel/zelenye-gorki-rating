@@ -720,3 +720,46 @@ button {
     display: grid;
   }
 }
+
+/* FORCE FIX HEADER */
+
+.logo-graphic,
+.logo-mark,
+.mini-mountains,
+.logo-graphic *,
+.logo-mark *,
+.mini-mountains *,
+.mountain,
+.tree,
+.pine,
+.m1,
+.m2,
+.m3,
+.t1,
+.t2,
+.t3,
+.p1,
+.p2,
+.p3 {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.poster::before,
+.poster::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
+
+.poster-bg {
+  background-image: url("assets/poster-bg.png") !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+}
+
+.poster-header {
+  padding-top: 80px !important;
+}
