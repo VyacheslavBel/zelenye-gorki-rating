@@ -1,0 +1,76 @@
+const iconMap = {
+  flag: "⚑",
+  ball: "⚽",
+  paint: "🎨",
+  hands: "🙌",
+  shield: "☆"
+};
+
+async function loadData() {
+  const res = await fetch("./data.json", { cache: "no-store" });
+  return await res.json();
+}
+
+function render(data) {
+  document.querySelectorAll("[data-field='campName']").forEach((el) => {
+    el.textContent = data.campName || "Зелёные горки";
+  });
+  document.querySelectorAll("[data-field='shift']").forEach((el) => {
+    el.textContent = data.shift || "2 смена";
+  });
+  document.querySelectorAll("[data-field='title']").forEach((el) => {
+    el.textContent = data.title || "Рейтинг деятельности отрядов";
+  });
+  document.querySelectorAll("[data-field='subtitle']").forEach((el) => {
+    el.textContent = data.subtitle || "Промежуточные результаты";
+  });
+  document.querySelectorAll("[data-field='updated']").forEach((el) => {
+    el.textContent = data.updated || "";
+  });
+
+  const rankingList = document.getElementById("rankingList");
+  rankingList.innerHTML = "";
+
+  [...data.ranking]
+    .sort((a, b) => Number(a.place) - Number(b.place))
+    .forEach((item) => {
+      const row = document.createElement("article");
+      row.className = "rank-row";
+      row.innerHTML = `
+        <div class="place"><span class="badge">${Number(item.place)}</span></div>
+        <div class="detachment"><strong>${escapeHtml(item.name)}</strong></div>
+        <div class="counselors">${escapeHtml(item.counselors || "—")}</div>
+        <div class="score">${Number(item.score)}</div>
+      `;
+      rankingList.appendChild(row);
+    });
+
+  const criteriaList = document.getElementById("criteriaList");
+  criteriaList.innerHTML = "";
+
+  data.criteria.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "criteria-item";
+    card.innerHTML = `
+      <div class="icon">${iconMap[item.icon] || "✓"}</div>
+      <div class="criteria-name">${escapeHtml(item.name)}</div>
+      <div class="criteria-value">${Number(item.value)}</div>
+    `;
+    criteriaList.appendChild(card);
+  });
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  }[ch]));
+}
+
+loadData().then(render).catch((error) => {
+  console.error(error);
+  document.getElementById("rankingList").innerHTML = "<p>Не удалось загрузить данные рейтинга.</p>";
+});
